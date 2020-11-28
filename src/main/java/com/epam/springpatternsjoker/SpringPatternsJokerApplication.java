@@ -1,5 +1,7 @@
 package com.epam.springpatternsjoker;
 
+import com.epam.springpatternsjoker.corona.services.doctors.Знахарь;
+import com.epam.springpatternsjoker.corona.services.doctors.Священник;
 import com.epam.springpatternsjoker.corona.services.doctors.Целитель;
 import com.naya.corona.legacy.model.Patient;
 import org.springframework.boot.SpringApplication;
@@ -12,7 +14,7 @@ public class SpringPatternsJokerApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringPatternsJokerApplication.class, args);
 
-        context.getBean(Целитель.class).исцелять(Patient.builder().build());
+        context.getBean(Священник.class).исцелять(Patient.builder().build());
     }
 
 }

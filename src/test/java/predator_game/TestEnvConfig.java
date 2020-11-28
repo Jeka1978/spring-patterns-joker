@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Configuration;
  * @author Evgeny Borisov
  */
 @Configuration
-@ComponentScan
+@ComponentScan(lazyInit = true)
 public class TestEnvConfig {
 }

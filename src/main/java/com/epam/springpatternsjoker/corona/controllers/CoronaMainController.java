@@ -2,7 +2,8 @@ package com.epam.springpatternsjoker.corona.controllers;
 
 import com.epam.springpatternsjoker.corona.model.PatientStatus;
 import com.epam.springpatternsjoker.corona.services.Hospital;
-import com.epam.springpatternsjoker.corona.services.PSRService;
+import com.epam.springpatternsjoker.corona.psr.PSRService;
+import com.epam.springpatternsjokerstarter.CoronaController;
 import com.naya.corona.legacy.model.Patient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +13,10 @@ import static java.time.LocalDateTime.now;
 /**
  * @author Evgeny Borisov
  */
-@RestController
+@CoronaController
 @RequiredArgsConstructor
 @RequestMapping("/corona/")
-public class CoronaController {
+public class CoronaMainController {
     private final Hospital hospital;
     private final PSRService diagnosticService;
 
@@ -33,7 +34,7 @@ public class CoronaController {
 
 
     @GetMapping("diagnose")
-    public PatientStatus getPatientStatus(@PathVariable String name){
+    public PatientStatus getPatientStatus(){
         return new PatientStatus(diagnosticService.isPositive(),now());
     }
 

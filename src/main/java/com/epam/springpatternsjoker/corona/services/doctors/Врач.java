@@ -26,4 +26,10 @@ public class Врач implements Целитель {
         System.out.println("сегодня попробуем: "+лечение.getClass().getSimpleName());
         лечение.применить(patient);
     }
+
+    @Override
+    public String myType() {
+        return Целитель.ТРАДИЦИОННАЯ;
+    }
 }
+

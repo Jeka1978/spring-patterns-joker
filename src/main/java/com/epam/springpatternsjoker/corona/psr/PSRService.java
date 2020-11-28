@@ -1,4 +1,4 @@
-package com.epam.springpatternsjoker.corona.services;
+package com.epam.springpatternsjoker.corona.psr;
 
 import com.epam.springpatternsjoker.corona.model.Papaya;
 import com.epam.springpatternsjoker.corona.services.doctors.Целитель;

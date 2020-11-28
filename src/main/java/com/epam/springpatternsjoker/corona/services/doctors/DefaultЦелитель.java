@@ -20,6 +20,12 @@ public class DefaultЦелитель implements Целитель {
 
     @Override
     public void исцелять(Patient patient) {
-        всеЛечения.get(random.nextInt(всеЛечения.size())).применить(patient);
+//        всеЛечения.get(random.nextInt(всеЛечения.size())).применить(patient);
+        System.out.println("само пройдёт");
+    }
+
+    @Override
+    public String myType() {
+        return "default";
     }
 }

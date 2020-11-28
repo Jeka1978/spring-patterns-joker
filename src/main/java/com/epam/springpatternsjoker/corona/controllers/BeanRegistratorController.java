@@ -4,6 +4,8 @@ import com.epam.springpatternsjoker.corona.infra.BeanMD;
 import com.epam.springpatternsjoker.corona.infra.CCL;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.context.support.GenericApplicationContext;
@@ -29,7 +31,14 @@ public class BeanRegistratorController {
     @SneakyThrows
     @PostMapping("/regbean")
     public String regBean(@RequestBody BeanMD beanMD){
+        Class<?> beanClass = ccl.findClass(beanMD.getBeanClassName());
+        BeanDefinitionRegistry beanFactory = (BeanDefinitionRegistry) context.getBeanFactory();
 
+        GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
+        beanDefinition.setScope(SCOPE_SINGLETON);
+        beanDefinition.setBeanClass(beanClass);
+        beanFactory.registerBeanDefinition(beanMD.getBeanName(),beanDefinition);
+        context.getBean(beanMD.getBeanName());
 
         return "registered";
     }

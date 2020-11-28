@@ -16,8 +16,8 @@ public class CCL extends ClassLoader {
     @SneakyThrows
     public Class<?> findClass(String className) {
         String fileName = "target/classes/"+className.replace('.', File.separatorChar) + ".class";
-        byte[] b =  Files.newInputStream(Path.of(fileName)).readAllBytes();
-        return defineClass(className, b, 0, b.length);
+        byte[] bytecode =  Files.newInputStream(Path.of(fileName)).readAllBytes();
+        return defineClass(className, bytecode, 0, bytecode.length);
     }
 
 

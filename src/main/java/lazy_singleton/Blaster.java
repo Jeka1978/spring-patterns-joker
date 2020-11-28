@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
  * @author Evgeny Borisov
  */
 @Service
+@Lazy
 public class Blaster {
 
     @PostConstruct
